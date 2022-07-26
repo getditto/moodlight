@@ -1,0 +1,660 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F96ED8D328906EE000450A78 /* DittoObjC in Frameworks */ = {isa = PBXBuildFile; productRef = F96ED8D228906EE000450A78 /* DittoObjC */; };
+		F96ED8D528906EE000450A78 /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F96ED8D428906EE000450A78 /* DittoSwift */; };
+		F9878C22288DFFF100DC09EB /* MoodlightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C21288DFFF100DC09EB /* MoodlightApp.swift */; };
+		F9878C24288DFFF100DC09EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C23288DFFF100DC09EB /* ContentView.swift */; };
+		F9878C26288DFFF100DC09EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9878C25288DFFF100DC09EB /* Assets.xcassets */; };
+		F9878C2A288DFFF100DC09EB /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9878C29288DFFF100DC09EB /* Preview Assets.xcassets */; };
+		F9878C34288DFFF200DC09EB /* MoodlightTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C33288DFFF200DC09EB /* MoodlightTests.swift */; };
+		F9878C3E288DFFF200DC09EB /* MoodlightUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C3D288DFFF200DC09EB /* MoodlightUITests.swift */; };
+		F9878C40288DFFF200DC09EB /* MoodlightUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C3F288DFFF200DC09EB /* MoodlightUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		F9878C30288DFFF200DC09EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9878C16288DFFF100DC09EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9878C1D288DFFF100DC09EB;
+			remoteInfo = DittoMoodlight;
+		};
+		F9878C3A288DFFF200DC09EB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = F9878C16288DFFF100DC09EB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F9878C1D288DFFF100DC09EB;
+			remoteInfo = DittoMoodlight;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		F9878C1E288DFFF100DC09EB /* Moodlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moodlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9878C21288DFFF100DC09EB /* MoodlightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodlightApp.swift; sourceTree = "<group>"; };
+		F9878C23288DFFF100DC09EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F9878C25288DFFF100DC09EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		F9878C27288DFFF100DC09EB /* Moodlight.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Moodlight.entitlements; sourceTree = "<group>"; };
+		F9878C29288DFFF100DC09EB /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F9878C2F288DFFF200DC09EB /* MoodlightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodlightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9878C33288DFFF200DC09EB /* MoodlightTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodlightTests.swift; sourceTree = "<group>"; };
+		F9878C39288DFFF200DC09EB /* MoodlightUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MoodlightUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		F9878C3D288DFFF200DC09EB /* MoodlightUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodlightUITests.swift; sourceTree = "<group>"; };
+		F9878C3F288DFFF200DC09EB /* MoodlightUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodlightUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		F9878C51288E00CD00DC09EB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F9878C1B288DFFF100DC09EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F96ED8D328906EE000450A78 /* DittoObjC in Frameworks */,
+				F96ED8D528906EE000450A78 /* DittoSwift in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9878C2C288DFFF200DC09EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9878C36288DFFF200DC09EB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		F9878C15288DFFF100DC09EB = {
+			isa = PBXGroup;
+			children = (
+				F9878C20288DFFF100DC09EB /* Moodlight */,
+				F9878C32288DFFF200DC09EB /* MoodlightTests */,
+				F9878C3C288DFFF200DC09EB /* MoodlightUITests */,
+				F9878C1F288DFFF100DC09EB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		F9878C1F288DFFF100DC09EB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F9878C1E288DFFF100DC09EB /* Moodlight.app */,
+				F9878C2F288DFFF200DC09EB /* MoodlightTests.xctest */,
+				F9878C39288DFFF200DC09EB /* MoodlightUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		F9878C20288DFFF100DC09EB /* Moodlight */ = {
+			isa = PBXGroup;
+			children = (
+				F9878C51288E00CD00DC09EB /* Info.plist */,
+				F9878C21288DFFF100DC09EB /* MoodlightApp.swift */,
+				F9878C23288DFFF100DC09EB /* ContentView.swift */,
+				F9878C25288DFFF100DC09EB /* Assets.xcassets */,
+				F9878C27288DFFF100DC09EB /* Moodlight.entitlements */,
+				F9878C28288DFFF100DC09EB /* Preview Content */,
+			);
+			path = Moodlight;
+			sourceTree = "<group>";
+		};
+		F9878C28288DFFF100DC09EB /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				F9878C29288DFFF100DC09EB /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		F9878C32288DFFF200DC09EB /* MoodlightTests */ = {
+			isa = PBXGroup;
+			children = (
+				F9878C33288DFFF200DC09EB /* MoodlightTests.swift */,
+			);
+			path = MoodlightTests;
+			sourceTree = "<group>";
+		};
+		F9878C3C288DFFF200DC09EB /* MoodlightUITests */ = {
+			isa = PBXGroup;
+			children = (
+				F9878C3D288DFFF200DC09EB /* MoodlightUITests.swift */,
+				F9878C3F288DFFF200DC09EB /* MoodlightUITestsLaunchTests.swift */,
+			);
+			path = MoodlightUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		F9878C1D288DFFF100DC09EB /* Moodlight */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9878C43288DFFF200DC09EB /* Build configuration list for PBXNativeTarget "Moodlight" */;
+			buildPhases = (
+				F9878C1A288DFFF100DC09EB /* Sources */,
+				F9878C1B288DFFF100DC09EB /* Frameworks */,
+				F9878C1C288DFFF100DC09EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Moodlight;
+			packageProductDependencies = (
+				F96ED8D228906EE000450A78 /* DittoObjC */,
+				F96ED8D428906EE000450A78 /* DittoSwift */,
+			);
+			productName = DittoMoodlight;
+			productReference = F9878C1E288DFFF100DC09EB /* Moodlight.app */;
+			productType = "com.apple.product-type.application";
+		};
+		F9878C2E288DFFF200DC09EB /* MoodlightTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9878C46288DFFF200DC09EB /* Build configuration list for PBXNativeTarget "MoodlightTests" */;
+			buildPhases = (
+				F9878C2B288DFFF200DC09EB /* Sources */,
+				F9878C2C288DFFF200DC09EB /* Frameworks */,
+				F9878C2D288DFFF200DC09EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9878C31288DFFF200DC09EB /* PBXTargetDependency */,
+			);
+			name = MoodlightTests;
+			productName = DittoMoodlightTests;
+			productReference = F9878C2F288DFFF200DC09EB /* MoodlightTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		F9878C38288DFFF200DC09EB /* MoodlightUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F9878C49288DFFF200DC09EB /* Build configuration list for PBXNativeTarget "MoodlightUITests" */;
+			buildPhases = (
+				F9878C35288DFFF200DC09EB /* Sources */,
+				F9878C36288DFFF200DC09EB /* Frameworks */,
+				F9878C37288DFFF200DC09EB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F9878C3B288DFFF200DC09EB /* PBXTargetDependency */,
+			);
+			name = MoodlightUITests;
+			productName = DittoMoodlightUITests;
+			productReference = F9878C39288DFFF200DC09EB /* MoodlightUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		F9878C16288DFFF100DC09EB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1400;
+				LastUpgradeCheck = 1400;
+				TargetAttributes = {
+					F9878C1D288DFFF100DC09EB = {
+						CreatedOnToolsVersion = 14.0;
+					};
+					F9878C2E288DFFF200DC09EB = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = F9878C1D288DFFF100DC09EB;
+					};
+					F9878C38288DFFF200DC09EB = {
+						CreatedOnToolsVersion = 14.0;
+						TestTargetID = F9878C1D288DFFF100DC09EB;
+					};
+				};
+			};
+			buildConfigurationList = F9878C19288DFFF100DC09EB /* Build configuration list for PBXProject "Moodlight" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = F9878C15288DFFF100DC09EB;
+			packageReferences = (
+				F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
+			);
+			productRefGroup = F9878C1F288DFFF100DC09EB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				F9878C1D288DFFF100DC09EB /* Moodlight */,
+				F9878C2E288DFFF200DC09EB /* MoodlightTests */,
+				F9878C38288DFFF200DC09EB /* MoodlightUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		F9878C1C288DFFF100DC09EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9878C2A288DFFF100DC09EB /* Preview Assets.xcassets in Resources */,
+				F9878C26288DFFF100DC09EB /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9878C2D288DFFF200DC09EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9878C37288DFFF200DC09EB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		F9878C1A288DFFF100DC09EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9878C24288DFFF100DC09EB /* ContentView.swift in Sources */,
+				F9878C22288DFFF100DC09EB /* MoodlightApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9878C2B288DFFF200DC09EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9878C34288DFFF200DC09EB /* MoodlightTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F9878C35288DFFF200DC09EB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F9878C3E288DFFF200DC09EB /* MoodlightUITests.swift in Sources */,
+				F9878C40288DFFF200DC09EB /* MoodlightUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		F9878C31288DFFF200DC09EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9878C1D288DFFF100DC09EB /* Moodlight */;
+			targetProxy = F9878C30288DFFF200DC09EB /* PBXContainerItemProxy */;
+		};
+		F9878C3B288DFFF200DC09EB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F9878C1D288DFFF100DC09EB /* Moodlight */;
+			targetProxy = F9878C3A288DFFF200DC09EB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		F9878C41288DFFF200DC09EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		F9878C42288DFFF200DC09EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+			};
+			name = Release;
+		};
+		F9878C44288DFFF200DC09EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Moodlight/Moodlight.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Moodlight/Preview Content\"";
+				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Moodlight/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Uses Bluetooth to connect and sync with nearby devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Uses Bluetooth to connect and sync with nearby devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Uses WiFi to connect and sync with nearby devices";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ditto.Moodlight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		F9878C45288DFFF200DC09EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Moodlight/Moodlight.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Moodlight/Preview Content\"";
+				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
+				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Moodlight/Info.plist;
+				INFOPLIST_KEY_NSBluetoothAlwaysUsageDescription = "Uses Bluetooth to connect and sync with nearby devices";
+				INFOPLIST_KEY_NSBluetoothPeripheralUsageDescription = "Uses Bluetooth to connect and sync with nearby devices";
+				INFOPLIST_KEY_NSLocalNetworkUsageDescription = "Uses WiFi to connect and sync with nearby devices";
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
+				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
+				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ditto.Moodlight;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		F9878C47288DFFF200DC09EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ditto.MoodlightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moodlight.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Moodlight";
+			};
+			name = Debug;
+		};
+		F9878C48288DFFF200DC09EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ditto.MoodlightTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Moodlight.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Moodlight";
+			};
+			name = Release;
+		};
+		F9878C4A288DFFF200DC09EB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ditto.MoodlightUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Moodlight;
+			};
+			name = Debug;
+		};
+		F9878C4B288DFFF200DC09EB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3T2VMFZPPQ;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				MACOSX_DEPLOYMENT_TARGET = 12.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = ditto.MoodlightUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Moodlight;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		F9878C19288DFFF100DC09EB /* Build configuration list for PBXProject "Moodlight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9878C41288DFFF200DC09EB /* Debug */,
+				F9878C42288DFFF200DC09EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9878C43288DFFF200DC09EB /* Build configuration list for PBXNativeTarget "Moodlight" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9878C44288DFFF200DC09EB /* Debug */,
+				F9878C45288DFFF200DC09EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9878C46288DFFF200DC09EB /* Build configuration list for PBXNativeTarget "MoodlightTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9878C47288DFFF200DC09EB /* Debug */,
+				F9878C48288DFFF200DC09EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F9878C49288DFFF200DC09EB /* Build configuration list for PBXNativeTarget "MoodlightUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F9878C4A288DFFF200DC09EB /* Debug */,
+				F9878C4B288DFFF200DC09EB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/getditto/DittoSwiftPackage";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F96ED8D228906EE000450A78 /* DittoObjC */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
+			productName = DittoObjC;
+		};
+		F96ED8D428906EE000450A78 /* DittoSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
+			productName = DittoSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = F9878C16288DFFF100DC09EB /* Project object */;
+}
