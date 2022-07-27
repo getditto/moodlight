@@ -7,26 +7,28 @@
 
 import SwiftUI
 import DittoSwift
+import Combine
 
 struct ContentView: View {
     
     @State var liveQuery: DittoLiveQuery?
+    
+    @State private var isOff: Bool = false
     
     @State private var color : Color = {
         var red: Double = 39
         var green: Double = 103
         var blue: Double = 245
         
-        let colorDoc = MoodlightApp.ditto.store["lights"].findByID(DittoDocumentID(5)).exec()
-        
-        if let colorDoc = colorDoc {
-            red = colorDoc["red"].doubleValue
-            green = colorDoc["green"].doubleValue
-            blue = colorDoc["blue"].doubleValue
+        if let persistedColors = ContentView.getPersistedRGBColors() {
+            red = persistedColors.red
+            green = persistedColors.green
+            blue = persistedColors.blue
         } else {
             ContentView.insertDefaultColor(red: red, green: green, blue: blue)
         }
-        return Color(red: red/255, green: green/255, blue: blue/255)
+        ContentView.internalColor = Color(red: red/255, green: green/255, blue: blue/255)
+        return ContentView.internalColor
     }() {
         didSet {
             ContentView.upsert(color: color)
@@ -52,33 +54,53 @@ struct ContentView: View {
             }
     }
     
+    init() {
+        //
+    }
+    
     var body: some View {
         VStack {
             Spacer()
-            if #available(macOS 13.0, *) {
-                ColorPicker("Pick a color", selection:$color, supportsOpacity: false)
+            if !isOff {
+                if #available(macOS 13.0, *) {
+                    ColorPicker("Pick a color", selection:$color, supportsOpacity: false)
+                        .foregroundColor(Color.white)
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .padding()
+                        // FOR SOME REASON didSet IS NOT CALLED BY COLOR PICKER
+                        .onChange(of: color) { newColor in
+                            ContentView.upsert(color: color)
+                        }
+                } else {
+                    // Fallback on earlier versions
+                }
+                Spacer()
+                Text("Or tap below to change color")
                     .foregroundColor(Color.white)
-                    .font(.largeTitle)
-                    .fontWeight(.black)
-                    .padding()
-                    // FOR SOME REASON didSet IS NOT CALLED BY COLOR PICKER
-                    //
-                    .onChange(of: color) { newColor in
-                        ContentView.upsert(color: color)
-                    }
-            } else {
-                // Fallback on earlier versions
+                    .font(.title2)
+                    .fontWeight(.bold)
+                Spacer()
+                Rectangle()
+                    .foregroundColor(color)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .gesture(tapGesture)
+            }
+            else {
+                Rectangle()
+                    .foregroundColor(Color.black)
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             Spacer()
-            Text("Or tap below to change color")
+            Toggle("Turn Off", isOn: $isOff)
                 .foregroundColor(Color.white)
-                .font(.title2)
+                .font(.subheadline)
                 .fontWeight(.bold)
-            Spacer()
-            Rectangle()
-                .foregroundColor(color)
-                .frame(maxWidth: .infinity, maxHeight: 600)
-                .gesture(tapGesture)
+                .padding()
+                .onReceive(Just(isOff)) { _ in
+                    ContentView.isLocalChange = true
+                    ContentView.upsert(isOff: isOff)
+                }
         }
         .frame(
               minWidth: 0,
@@ -87,17 +109,19 @@ struct ContentView: View {
               maxHeight: .infinity,
               alignment: .topLeading
             )
-        .background(color.ignoresSafeArea())
+        .background(isOff ? Color.black : color)
         .navigationTitle("Ditto Moodlight")
         .onAppear {
             if liveQuery == nil {
-                liveQuery = MoodlightApp.ditto.store["lights"].findByID(DittoDocumentID(5)).observe { colorDoc, _ in
+                liveQuery = MoodlightApp.ditto.store["lights"].findByID(5).observe { colorDoc, _ in
                     if let colorDoc = colorDoc, !ContentView.isLocalChange {
+                        let isOffDocValue = colorDoc["isOff"].boolValue
                         let red = colorDoc["red"].doubleValue
                         let green = colorDoc["green"].doubleValue
                         let blue = colorDoc["blue"].doubleValue
                         
                         color = Color(red: red/255, green: green/255, blue: blue/255)
+                        isOff = isOffDocValue
                     } else {
                         ContentView.isLocalChange = false
                     }
@@ -113,7 +137,7 @@ struct ContentView: View {
                 "red": red,
                 "green": green,
                 "blue": blue,
-                "disabled": false
+                "isOff": false
             ],
             id: 5,
             isDefault: true)
@@ -121,7 +145,7 @@ struct ContentView: View {
     
     static func upsert(color: Color) {
         if let components = color.cgColor?.components, !Color.compareRGB(lhs: ContentView.internalColor, rhs: color) {
-            let colors = ContentView.getRGBColor(components: components)
+            let colors = ContentView.getRGBColors(components: components)
             
             ContentView.isLocalChange = true
             let _ = try! MoodlightApp.ditto.store["lights"].upsert([
@@ -129,18 +153,36 @@ struct ContentView: View {
                 "red": colors.red,
                 "green": colors.green,
                 "blue": colors.blue,
-                "disabled": false
+                "isOff": false
             ])
             ContentView.internalColor = color
-            
         }
     }
     
-    static func getRGBColor(components: [CGFloat]) -> (red: Double, green: Double, blue: Double) {
+    static func upsert(isOff: Bool) {
+        ContentView.isLocalChange = true
+        MoodlightApp.ditto.store["lights"].findByID(5).update { doc in
+            doc?["isOff"].set(isOff)
+        }
+    }
+    
+    static func getRGBColors(components: [CGFloat]) -> (red: Double, green: Double, blue: Double) {
         let red = (components[0] * 255).rounded()
         let green = (components[1] * 255).rounded()
         let blue = (components[2] * 255).rounded()
         return (red, green, blue)
+    }
+    
+    static func getPersistedRGBColors() -> (red: Double, green: Double, blue: Double)? {
+        let colorDoc = MoodlightApp.ditto.store["lights"].findByID(5).exec()
+        
+        if let colorDoc = colorDoc {
+            let red = colorDoc["red"].doubleValue
+            let green = colorDoc["green"].doubleValue
+            let blue = colorDoc["blue"].doubleValue
+            return (red, green, blue)
+        }
+        return nil
     }
 }
 
@@ -158,8 +200,8 @@ extension Color {
     // Add custom compare to look at only the RGB values
     static func compareRGB (lhs: Color, rhs: Color) -> Bool {
         if let lhComponents = lhs.cgColor?.components, let rhComponents = rhs.cgColor?.components {
-            let lhRGB = ContentView.getRGBColor(components: lhComponents)
-            let rhRGB = ContentView.getRGBColor(components: rhComponents)
+            let lhRGB = ContentView.getRGBColors(components: lhComponents)
+            let rhRGB = ContentView.getRGBColors(components: rhComponents)
             return lhRGB.red == rhRGB.red && lhRGB.green == rhRGB.green && lhRGB.blue == rhRGB.blue
         }
         return lhs == rhs
