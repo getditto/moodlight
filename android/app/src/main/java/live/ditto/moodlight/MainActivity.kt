@@ -63,14 +63,6 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-//        mLightSwitch.setOnCheckedChangeListener { _, isChecked ->
-//            if (isChecked) {
-//                // The toggle is enabled
-//            } else {
-//                // The toggle is disabled
-//            }
-//        }
-
         // Create an instance of Ditto
         val androidDependencies = DefaultAndroidDittoDependencies(applicationContext)
         val ditto = Ditto(androidDependencies, DittoIdentity.OfflinePlayground(androidDependencies, "dittomoodlight"))
@@ -82,6 +74,10 @@ class MainActivity : AppCompatActivity() {
         this.collection = ditto.store.collection("lights")
         setUpLiveQuery()
         checkPermissions()
+
+        DittoLogger.enabled = true
+        DittoLogger.minimumLogLevel = DittoLogLevel.VERBOSE
+
     }
 
     private fun toggleLight(isOff: Boolean) {
@@ -92,7 +88,6 @@ class MainActivity : AppCompatActivity() {
             this.mButton.isClickable = false
             this.mTextView.setTextColor(Color.BLACK)
             this.mLayout.setOnClickListener { null }
-//            this.mLightSwitch.isChecked = true
 
         }
         else {
@@ -101,7 +96,6 @@ class MainActivity : AppCompatActivity() {
             this.mButton.setBackgroundColor(Color.BLUE)
             this.mButton.isClickable = true
             this.mTextView.setTextColor(Color.WHITE)
-//            this.mLightSwitch.isChecked = false
 
             this.mLayout.setOnClickListener {
                 val color = Color.rgb(nextInt(0, 255), nextInt(0,255), nextInt(0,255))
@@ -134,14 +128,8 @@ class MainActivity : AppCompatActivity() {
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                     this.mDefaultColor = Color.rgb(red/255, green/255, blue/255)
                 }
-//                if(isOff != this.isOff) {
-                    toggleLight(isOff)
-//                }
-//                else {
-//                    mLayout.setBackgroundColor(mDefaultColor)
-//                }
+                toggleLight(isOff)
             }
-
         }
     }
 
