@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
         this.mLightSwitch = findViewById(R.id.toggleButton)
         this.mLightSwitch.setOnClickListener {
             this.ditto.store["lights"].findByID(5).update {
-                it?.get("isOff")?.set(this.isOff)
+                it?.get("isOff")?.set(!this.isOff)
             }
         }
 
@@ -74,10 +74,6 @@ class MainActivity : AppCompatActivity() {
         this.collection = ditto.store.collection("lights")
         setUpLiveQuery()
         checkPermissions()
-
-        DittoLogger.enabled = true
-        DittoLogger.minimumLogLevel = DittoLogLevel.VERBOSE
-
     }
 
     private fun toggleLight(isOff: Boolean) {
@@ -88,6 +84,12 @@ class MainActivity : AppCompatActivity() {
             this.mButton.isClickable = false
             this.mTextView.setTextColor(Color.BLACK)
             this.mLayout.setOnClickListener { null }
+//            Thread(Runnable {
+////                if (!this.mLightSwitch.isChecked) {
+//                    this.mLightSwitch.isChecked = false
+////                    this.mLightSwitch.isSelected = true
+////                }
+//            })
 
         }
         else {
@@ -96,6 +98,13 @@ class MainActivity : AppCompatActivity() {
             this.mButton.setBackgroundColor(Color.BLUE)
             this.mButton.isClickable = true
             this.mTextView.setTextColor(Color.WHITE)
+
+//            Thread( Runnable {
+////                if(this.mLightSwitch.isChecked) {
+//                    this.mLightSwitch.isChecked = true
+////                    this.mLightSwitch.isSelected = false
+////                }
+//        })
 
             this.mLayout.setOnClickListener {
                 val color = Color.rgb(nextInt(0, 255), nextInt(0,255), nextInt(0,255))
@@ -114,7 +123,7 @@ class MainActivity : AppCompatActivity() {
                 )
             }
         }
-        this.isOff = !this.isOff
+        this.isOff = isOff
     }
 
     private fun setUpLiveQuery() {
