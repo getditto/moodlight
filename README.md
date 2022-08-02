@@ -12,7 +12,7 @@ This demo uses pyo3 to call the python libraries from Pimoroni.
 
 1. Request an offline license token through the [Portal](https://portal.ditto.live) and replace "YOUR_OFFLINE_TOKEN" with that value in all apps (iOS, Android, and moodlight-rs).
 
-2. Install Raspbery Pi OS following the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-hat-mini) for the Unicorn HAT Mini.
+2. Install Raspbery Pi OS and follow the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-hat-mini) for the Unicorn HAT Mini to install the required firmware for the light.
 
 3. Cross compile `moodlight-rs` for Raspberry Pi:
 
