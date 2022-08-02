@@ -21,14 +21,14 @@ There are two companion apps - one for iOS and Android - which offer the ability
 
 1. Request an offline license token through the [Portal](https://portal.ditto.live) and replace "YOUR_OFFLINE_TOKEN" with that value in all apps (iOS, Android, and moodlight-rs).
 
-2. Copy `moodlight-rs` to the Raspberry Pi.
+2. Install Raspberry Pi OS and follow the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) for the Unicorn HAT to install the required firmware for the light:
+
+3. Copy `moodlight-rs` to the Raspberry Pi.
 
 ```
 scp -r moodlight-rs pi@raspberrypi.local:~/
 ```
 
-
-3. Install Raspbery Pi OS and follow the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) for the Unicorn HAT to install the required firmware for the light:
 
 4. Install rust on the Raspberry Pi
 
