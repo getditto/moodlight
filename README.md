@@ -2,6 +2,9 @@
 
 Demo project to remotely control an RPi Moodlight over Bluetooth via iOS and Android.
 
+![trim 1EDE8B51-10E3-491E-B8B4-0F16D0B93A21](https://user-images.githubusercontent.com/1036685/182312590-3a52674a-fc47-4e9e-a9f4-605e22f63982.gif)
+
+
 ## Moodlight
 
 In this demo, we are using the [Unicorn HAT](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) with the [Pimoroni Mood Light Kit](https://shop.pimoroni.com/products/mood-light-pi-zero-w-project-kit?variant=38477389450) which is powered by a [Raspbery Pi Zero WH](https://shop.pimoroni.com/products/raspberry-pi-zero-w?variant=39458414264403).
