@@ -12,9 +12,14 @@ This demo uses pyo3 to call the python libraries from Pimoroni.
 
 1. Install Raspbery Pi OS following the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-hat-mini) for the Unicorn HAT Mini.
 
-1. Cross compile on an RPi-4:
+1. Cross compile `moodlight-rs` for Raspberry Pi:
 
-`PYO3_CROSS_LIB_DIR=/usr/lib DITTOFFI_SEARCH_PATH=/home/pi/ditto/target/arm-unknown-linux-gnueabihf/release LIBDITTO_STATIC=0 cargo build --target arm-unknown-linux-gnueabihf`
+```
+cargo build --release
+cd moodlight-rs
+rustup target add armv7-unknown-linux-gnueabihf
+PYO3_CROSS_LIB_DIR=/usr/lib DITTOFFI_SEARCH_PATH=/home/pi/ditto/target/arm-unknown-linux-gnueabihf/release LIBDITTO_STATIC=0 cargo build --target arm-unknown-linux-gnueabihf
+```
 
 1. Then transfer the `libdittoffi.so` and the `moodlight-rs` binary over to the RPi-Zero-W
 
