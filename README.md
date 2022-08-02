@@ -46,7 +46,11 @@ rustup target add armv7-unknown-linux-gnueabihf
 PYO3_CROSS_LIB_DIR=/usr/lib DITTOFFI_SEARCH_PATH=./ LIBDITTO_STATIC=0 cargo build --target arm-unknown-linux-gnueabihf
 ```
 
-7. Run iOS or Android apps on a companion device to control the light!
+7. Run it on Rpi
+
+//TODO
+
+8. Run iOS or Android apps on a companion device to control the light!
 
 
 ## Troubleshooting
