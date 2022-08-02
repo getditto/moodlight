@@ -21,26 +21,24 @@ There are two companion apps - one for iOS and Android - which offer the ability
 
 1. Request an offline license token through the [Portal](https://portal.ditto.live) and replace "YOUR_OFFLINE_TOKEN" with that value in all apps (iOS, Android, and moodlight-rs).
 
-2. Install Raspbery Pi OS and follow the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) for the Unicorn HAT to install the required firmware for the light:
-
-3. [Configure the Raspberry Pi to support Bluetooth Low Energy with Ditto](https://docs.ditto.live/raspberrypi/installation)
-
-4. Copy `moodlight-rs` to the Raspberry Pi
+2. Copy `moodlight-rs` to the Raspberry Pi.
 
 ```
-scp moodlight-rs pi@raspberrypi.local:~/
-scp libdittoffi.so pi@raspberrypi.local:~/
+scp -r moodlight-rs pi@raspberrypi.local:~/
 ```
 
-5. Run the pre-compiled `moodlight-rs`:
+
+3. Install Raspbery Pi OS and follow the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) for the Unicorn HAT to install the required firmware for the light:
+
+4. Install rust on the Raspberry Pi
 
 ```
-sudo LD_LIBRARY_PATH=./ ./moodlight-rs [optional RGB value to immediately configure light - 0 0 0 to turn light off]
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-6. Run iOS or Android apps on a companion device to control the light!
+5. [Configure the Raspberry Pi to support Bluetooth Low Energy with Ditto](https://docs.ditto.live/raspberrypi/installation)
 
-7. To compile `moodlight-rs` manually:
+6. Compile `moodlight-rs` manually on the Raspberry Pi:
 
 ```
 cd moodlight-rs
@@ -48,6 +46,10 @@ rustup target add armv7-unknown-linux-gnueabihf
 PYO3_CROSS_LIB_DIR=/usr/lib DITTOFFI_SEARCH_PATH=./ LIBDITTO_STATIC=0 cargo build --target arm-unknown-linux-gnueabihf
 ```
 
+7. Run iOS or Android apps on a companion device to control the light!
+
+
 ## Troubleshooting
 
 * Ensure you're using a high-quality SD card.
+* If Rust installation fails, you may need to increase the [swap size](https://pimylifeup.com/raspberry-pi-swap-file/) on your Raspberry Pi. (see [this issue](https://github.com/rust-lang/rustup/issues/2717))
