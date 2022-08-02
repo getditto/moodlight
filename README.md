@@ -4,6 +4,7 @@ Demo project to remotely control an Raspberry Pi Mood Light over Bluetooth via i
 
 ![trim 1EDE8B51-10E3-491E-B8B4-0F16D0B93A21](https://user-images.githubusercontent.com/1036685/182312590-3a52674a-fc47-4e9e-a9f4-605e22f63982.gif)
 
+[📺 Watch the video](https://www.youtube.com/watch?v=JbuY6xy3VLA)
 
 ## Overview
 
@@ -22,22 +23,24 @@ There are two companion apps - one for iOS and Android - which offer the ability
 
 2. Install Raspbery Pi OS and follow the [getting started guide](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) for the Unicorn HAT to install the required firmware for the light:
 
-```
-https://learn.pimoroni.com/article/getting-started-with-unicorn-phat
-```
-
 3. [Configure the Raspberry Pi to support Bluetooth Low Energy with Ditto](https://docs.ditto.live/raspberrypi/installation)
 
-4. Run the pre-compiled `moodlight-rs`:
+4. Copy `moodlight-rs` to the Raspberry Pi
 
 ```
-cd moodlight-rs
+scp moodlight-rs pi@raspberrypi.local:~/
+scp libdittoffi.so pi@raspberrypi.local:~/
+```
+
+5. Run the pre-compiled `moodlight-rs`:
+
+```
 sudo LD_LIBRARY_PATH=./ ./moodlight-rs [optional RGB value to immediately configure light - 0 0 0 to turn light off]
 ```
 
-5. Run iOS or Android apps on a companion device to control the light!
+6. Run iOS or Android apps on a companion device to control the light!
 
-6. Compile `moodlight-rs` manually:
+7. To compile `moodlight-rs` manually:
 
 ```
 cd moodlight-rs
@@ -47,4 +50,4 @@ PYO3_CROSS_LIB_DIR=/usr/lib DITTOFFI_SEARCH_PATH=./ LIBDITTO_STATIC=0 cargo buil
 
 ## Troubleshooting
 
-Ensure you're using a high-quality SD card.
+* Ensure you're using a high-quality SD card.
