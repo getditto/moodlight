@@ -1,35 +1,62 @@
 use dittolive_ditto::{identity, prelude::*};
+use clap::Parser;
 
 use pyo3::{
     prelude::*,
     types::{PyModule, PyTuple},
 };
-use std::env;
+
 use std::io;
 use std::io::prelude::*;
 use std::str::FromStr;
 use std::sync::Arc;
 
+/// Demo project to remotely control an Raspberry Pi Mood Light over Bluetooth via iOS and Android.
+#[derive(Parser, Debug)]
+#[clap(author, version, about, long_about = None)]
+struct Args {
+   /// set to true to configure script for Unicorn pHAT Mini Mood Light
+   #[clap(short, long)]
+   mini: Option<bool>,
+
+   /// Red, Green, Blue color value to set the light on startup
+   #[clap(last = true)]
+   rgb: Vec<String>,
+}
+
+
 // NOTE THIS BINARY MUST BE RUN AS ROOT
 // LIMITATION OF THE PYTHON GPIO LIBRARY
 fn main() {
+    let args = Args::parse();
+
+    let is_mini = args.mini;
+
+    if let Some(mini) = args.mini {
+        println!("Is Unicorn pHAT Mini: {:?}", mini);
+    }
+    println!("Initial RGB Values: {:?}", args.rgb);
+
     // Default Ditto Blue
     let mut arg1 = 39;
     let mut arg2 = 103;
     let mut arg3 = 245;
 
-    if let Some(c_arg1) = env::args().nth(1) {
+    if let Some(c_arg1) = args.rgb.get(0) {
         arg1 = c_arg1.parse::<i32>().unwrap();
     }
-    if let Some(c_arg2) = env::args().nth(2) {
+    if let Some(c_arg2) = args.rgb.get(1) {
         arg2 = c_arg2.parse::<i32>().unwrap();
     }
-    if let Some(c_arg3) = env::args().nth(3) {
+    if let Some(c_arg3) = args.rgb.get(0) {
         arg3 = c_arg3.parse::<i32>().unwrap();
     }
 
     // Try out the light
-    configure_light(arg1, arg2, arg3);
+    match is_mini {
+        Some(mini) if mini => configure_light_mini(arg1, arg2, arg3),
+        _ => configure_light(arg1, arg2, arg3),
+    }
 
     // Setup Ditto
     let ditto = Ditto::builder()
@@ -50,7 +77,7 @@ fn main() {
         .build().unwrap();
 
     // Sign up at https://portal.ditto.live to request an offline license token
-    ditto.set_offline_only_license_token("YOUR_OFFLINE_TOKEN").unwrap();
+    ditto.set_offline_only_license_token("o2d1c2VyX2lkbnJhZUBkaXR0by5saXZlZmV4cGlyeXgYMjAyMi0wOS0wMVQwNjo1OTo1OS45OTlaaXNpZ25hdHVyZXhYWjNvUURaNEU4R09kcTBJZTllYXE2bjhmT0tVSTZWcFBQUmkzU2J3V1RHaEtUS2pHT2NoV0wrV2FreldTZU8wUXRiM0ZRd2F5ZEU5Q01oRjd5ZUJETUE9PQ==").unwrap();
     ditto.start_sync();
 
     let store = ditto.store();
@@ -64,10 +91,21 @@ fn main() {
             let blue = light_doc.get::<f32>("blue").unwrap();
             let is_off = light_doc.get::<bool>("isOff").unwrap();
 
-            if is_off {
-                configure_light(0, 0, 0);
-            } else {
-                configure_light(red as i32, green as i32, blue as i32);
+            match is_mini {
+                Some(mini) if mini => {
+                    if is_off {
+                        configure_light_mini(0, 0, 0);
+                    } else {
+                        configure_light_mini(red as i32, green as i32, blue as i32);
+                    }
+                }
+                _ => {
+                    if is_off {
+                        configure_light(0, 0, 0);
+                    } else {
+                        configure_light(red as i32, green as i32, blue as i32);
+                    }
+                }
             }
         }
     };
@@ -102,10 +140,47 @@ from time import sleep
 
 import unicornhat as unicorn
 
-
 #setup the unicorn hat
 unicorn.set_layout(unicorn.AUTO)
-unicorn.brightness(1)
+unicorn.set_brightness(1)
+
+#get the width and height of the hardware
+width, height = unicorn.get_shape()
+
+def toggle(r,g,b):
+    #print the relevant message
+    print('Setting RGA values: ' + str(r) + ', ' + str(g) + ', ' + str(b))
+    #set the LEDs to the relevant lighting (all on/off)
+    for y in range(height):
+            for x in range(width):
+                    unicorn.set_pixel(x,y,r,g,b)
+                    unicorn.show()
+    return True
+    "#,
+            "moodlight.py",
+            "moodlight",
+        ).unwrap();
+
+        let args = PyTuple::new(py, &[red, green, blue]);
+        let result: bool = moodlight.getattr("toggle").unwrap().call1(args).unwrap().extract().unwrap();
+        assert_eq!(result, true);
+    });
+}
+
+fn configure_light_mini(red: i32, green: i32, blue: i32) {
+    Python::with_gil(|py| {
+        let moodlight = PyModule::from_code(
+            py,
+            r#"
+
+from random import randint
+from time import sleep
+
+from unicornhatmini import UnicornHATMini
+unicorn = UnicornHATMini()
+
+#setup the unicorn hat mini
+unicorn.set_brightness(1)
 
 #get the width and height of the hardware
 width, height = unicorn.get_shape()
