@@ -17,6 +17,7 @@ There are two companion apps - one for iOS and Android - which offer the ability
 * [Pimoroni Mood Light Kit](https://shop.pimoroni.com/products/mood-light-pi-zero-w-project-kit?variant=38477389450)
 * 32 bit Raspberry Pi OS
 * iOS app requires iOS 16 as it is using a new SwiftUI Color Wheel component
+* Python shared library installed
 
 ## Setup
 
@@ -46,7 +47,10 @@ cd moodlight-rs
 // If cross-compiling to original RPi-Zero-W
 rustup target add arm-unknown-linux-gnueabihf
 
-PYO3_CROSS_LIB_DIR=/usr/lib DITTOFFI_SEARCH_PATH=./ LIBDITTO_STATIC=0 cargo build [--target arm-unknown-linux-gnueabihf]
+// Install the Python shared library
+sudo apt install python3-dev
+
+[PYO3_CROSS_LIB_DIR=/usr/lib] DITTOFFI_SEARCH_PATH=./ LIBDITTO_STATIC=0 cargo build [--target arm-unknown-linux-gnueabihf]
 ```
 
 7. Run `moodlight-rs`:
