@@ -15,13 +15,14 @@ There are two companion apps - one for iOS and Android - which offer the ability
 ## Requirements
 
 * [Pimoroni Mood Light Kit](https://shop.pimoroni.com/products/mood-light-pi-zero-w-project-kit?variant=38477389450)
+* 32 bit Raspberry Pi OS
 * iOS app requires iOS 16 as it is using a new SwiftUI Color Wheel component
 
 ## Setup
 
 1. Request an offline license token through the [Portal](https://portal.ditto.live) and replace "YOUR_OFFLINE_TOKEN" with that value in all apps (iOS, Android, and moodlight-rs).
 
-2. Install Raspberry Pi OS and follow the [Unicorn HAT](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) or [Unicorn HAT Mini](https://learn.pimoroni.com/article/getting-started-with-unicorn-hat-mini) getting started guide to install the required firmware for the light.
+2. Install Raspberry Pi OS (32 bit) and follow the [Unicorn HAT](https://learn.pimoroni.com/article/getting-started-with-unicorn-phat) or [Unicorn HAT Mini](https://learn.pimoroni.com/article/getting-started-with-unicorn-hat-mini) getting started guide to install the required firmware for the light.
 
 3. Copy `moodlight-rs` to the Raspberry Pi.
 
