@@ -48,7 +48,7 @@ cd moodlight-rs
 rustup target add arm-unknown-linux-gnueabihf
 
 // Install the Python shared library
-sudo apt install python3-dev
+sudo apt install python3-dev python3-venv python3-pip
 
 [PYO3_CROSS_LIB_DIR=/usr/lib] DITTOFFI_SEARCH_PATH=./ LIBDITTO_STATIC=0 cargo build [--target arm-unknown-linux-gnueabihf]
 ```
