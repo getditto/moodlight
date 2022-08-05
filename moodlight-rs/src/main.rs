@@ -112,7 +112,7 @@ fn main() {
     let _lq = collection.find_by_id(light_id).observe(handler).unwrap();
 
     // downgrade our logging output before running the query
-    Ditto::set_minimum_log_level(LogLevel::Debug);
+    //Ditto::set_minimum_log_level(LogLevel::Debug);
 
     pause();
 }

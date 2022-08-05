@@ -13,7 +13,7 @@ struct ContentView: View {
     
     @State var liveQuery: DittoLiveQuery?
     
-    @State private var isOff: Bool = false
+    @State private var isOff: Bool = ContentView.getPersistedIsOff()
     
     @State private var color : Color = {
         var red: Double = 39
@@ -39,6 +39,8 @@ struct ContentView: View {
     // For some reason mutations call `didSet` or `onChange` multiple times
     // for each single mutation?
     private static var internalColor = Color.blue
+    
+    private static var internalIsOff = false
     
     // Used to differentiate between a local mutation and an incoming sync
     // mutation. This allows us to break the loop so local mutations don't
@@ -98,8 +100,11 @@ struct ContentView: View {
                 .fontWeight(.bold)
                 .padding()
                 .onReceive(Just(isOff)) { _ in
-                    ContentView.isLocalChange = true
-                    ContentView.upsert(isOff: isOff)
+                    if ContentView.internalIsOff != isOff {
+                        ContentView.isLocalChange = true
+                        ContentView.upsert(isOff: isOff)
+                        ContentView.internalIsOff = isOff
+                    }
                 }
         }
         .frame(
@@ -183,6 +188,15 @@ struct ContentView: View {
             return (red, green, blue)
         }
         return nil
+    }
+    
+    static func getPersistedIsOff() -> Bool {
+        let colorDoc = MoodlightApp.ditto.store["lights"].findByID(5).exec()
+        
+        if let colorDoc = colorDoc {
+            return colorDoc["isOff"].boolValue
+        }
+        return false
     }
 }
 
