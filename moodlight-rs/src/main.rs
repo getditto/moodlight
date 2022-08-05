@@ -77,7 +77,7 @@ fn main() {
         .build().unwrap();
 
     // Sign up at https://portal.ditto.live to request an offline license token
-    ditto.set_offline_only_license_token("o2d1c2VyX2lkbnJhZUBkaXR0by5saXZlZmV4cGlyeXgYMjAyMi0wOS0wMVQwNjo1OTo1OS45OTlaaXNpZ25hdHVyZXhYWjNvUURaNEU4R09kcTBJZTllYXE2bjhmT0tVSTZWcFBQUmkzU2J3V1RHaEtUS2pHT2NoV0wrV2FreldTZU8wUXRiM0ZRd2F5ZEU5Q01oRjd5ZUJETUE9PQ==").unwrap();
+    ditto.set_offline_only_license_token("YOUR_TOKEN_HERE").unwrap();
     ditto.start_sync();
 
     let store = ditto.store();
