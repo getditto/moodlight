@@ -39,6 +39,11 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 5. [Configure the Raspberry Pi to support Bluetooth Low Energy with Ditto](https://docs.ditto.live/raspberrypi/installation)
 
+```
+// Typical requirements needed for BLE
+sudo apt-get install libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+```
+
 6. Compile `moodlight-rs` manually on the Raspberry Pi:
 
 ```
