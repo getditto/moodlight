@@ -41,7 +41,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 ```
 // Typical requirements needed for BLE
-sudo apt-get install libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev
+sudo apt-get install libglib2.0-dev libdbus-1-dev libudev-dev libical-dev libreadline-dev docutils-common
 ```
 
 6. Compile `moodlight-rs` manually on the Raspberry Pi:
