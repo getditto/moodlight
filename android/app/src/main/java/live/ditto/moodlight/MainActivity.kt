@@ -40,17 +40,7 @@ class MainActivity : AppCompatActivity() {
             val red = Color.red(color)
             val green = Color.green(color)
             val blue = Color.blue(color)
-
-            this.isLocalChange = true
-            ditto.store["lights"].upsert(
-                mapOf(
-                    "_id" to 5,
-                    "red" to red,
-                    "green" to green,
-                    "blue" to blue,
-                    "isOff" to false
-                )
-            )
+            this.upsert(red, green, blue)
         }
         this.mTextView = findViewById(R.id.textview)
         this.mTextView.setTextColor(Color.WHITE)
@@ -76,6 +66,21 @@ class MainActivity : AppCompatActivity() {
         this.collection = ditto.store.collection("lights")
         setUpLiveQuery()
         checkPermissions()
+    }
+
+    private fun upsert (red: Int, green: Int, blue: Int) {
+        this.isLocalChange = true
+        this.mDefaultColor = Color.rgb(red, green, blue)
+        this.mLayout.setBackgroundColor(this.mDefaultColor)
+        ditto.store["lights"].upsert(
+            mapOf(
+                "_id" to 5,
+                "red" to red,
+                "green" to green,
+                "blue" to blue,
+                "isOff" to false
+            )
+        )
     }
 
     private fun toggleLight(isOff: Boolean) {
@@ -113,17 +118,7 @@ class MainActivity : AppCompatActivity() {
                 val red = Color.red(color)
                 val green = Color.green(color)
                 val blue = Color.blue(color)
-
-                this.isLocalChange = true
-                this.ditto.store["lights"].upsert(
-                    mapOf(
-                        "_id" to 5,
-                        "red" to red,
-                        "green" to green,
-                        "blue" to blue,
-                        "isOff" to false
-                    )
-                )
+                this.upsert(red, green, blue)
             }
         }
         this.isOff = isOff
@@ -168,16 +163,7 @@ class MainActivity : AppCompatActivity() {
                 val red = Color.red(color)
                 val green = Color.green(color)
                 val blue = Color.blue(color)
-                self.isLocalChange = true
-                ditto.store["lights"].upsert(
-                    mapOf(
-                        "_id" to 5,
-                        "red" to red,
-                        "green" to green,
-                        "blue" to blue,
-                        "isOff" to false
-                    )
-                )
+                self.upsert(red, blue, green)
             }
         }
 
