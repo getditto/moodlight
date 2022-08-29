@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var ditto: Ditto
     private lateinit var collection: DittoCollection
     private lateinit var liveQuery: DittoLiveQuery
+    private var isLocalChange = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -40,6 +41,7 @@ class MainActivity : AppCompatActivity() {
             val green = Color.green(color)
             val blue = Color.blue(color)
 
+            this.isLocalChange = true
             ditto.store["lights"].upsert(
                 mapOf(
                     "_id" to 5,
@@ -112,6 +114,7 @@ class MainActivity : AppCompatActivity() {
                 val green = Color.green(color)
                 val blue = Color.blue(color)
 
+                this.isLocalChange = true
                 this.ditto.store["lights"].upsert(
                     mapOf(
                         "_id" to 5,
@@ -129,15 +132,19 @@ class MainActivity : AppCompatActivity() {
     private fun setUpLiveQuery() {
         liveQuery = collection.findByID(5).observe { colorDoc, _ ->
             colorDoc?.let {
-                val red = colorDoc["red"].floatValue
-                val green = colorDoc["green"].floatValue
-                val blue = colorDoc["blue"].floatValue
-                val isOff = colorDoc["isOff"].booleanValue
+                if (!this.isLocalChange) {
+                    val red = colorDoc["red"].floatValue
+                    val green = colorDoc["green"].floatValue
+                    val blue = colorDoc["blue"].floatValue
+                    val isOff = colorDoc["isOff"].booleanValue
 
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                    this.mDefaultColor = Color.rgb(red/255, green/255, blue/255)
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        this.mDefaultColor = Color.rgb(red / 255, green / 255, blue / 255)
+                    }
+                    toggleLight(isOff)
+                } else {
+                    this.isLocalChange = false
                 }
-                toggleLight(isOff)
             }
         }
     }
@@ -150,6 +157,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun openColorPicker() {
+        var self = this
         val ambilWarnaListenerObj = object : AmbilWarnaDialog.OnAmbilWarnaListener {
             override fun onCancel(dialog: AmbilWarnaDialog?) {
                 mLayout.setBackgroundColor(mDefaultColor)
@@ -160,7 +168,7 @@ class MainActivity : AppCompatActivity() {
                 val red = Color.red(color)
                 val green = Color.green(color)
                 val blue = Color.blue(color)
-
+                self.isLocalChange = true
                 ditto.store["lights"].upsert(
                     mapOf(
                         "_id" to 5,
