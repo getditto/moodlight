@@ -70,8 +70,8 @@ class MainActivity : AppCompatActivity() {
 
     private fun upsert (red: Int, green: Int, blue: Int) {
         this.isLocalChange = true
-        this.mDefaultColor = Color.rgb(red, green, blue)
-        this.mLayout.setBackgroundColor(this.mDefaultColor)
+        this.mDefaultColor = Color.rgb(red / 255, green / 255, blue / 255)
+        this.isOff = false
         ditto.store["lights"].upsert(
             mapOf(
                 "_id" to 5,
