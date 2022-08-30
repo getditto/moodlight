@@ -48,6 +48,8 @@ struct ContentView: View {
             .onEnded {
                 withAnimation {
                     color = Color.random()
+                    ContentView.upsert(color: color)
+
                 }
             }
     }
