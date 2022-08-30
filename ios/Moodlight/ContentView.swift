@@ -29,11 +29,7 @@ struct ContentView: View {
         }
         ContentView.internalColor = Color(red: red/255, green: green/255, blue: blue/255)
         return ContentView.internalColor
-    }() {
-        didSet {
-            ContentView.upsert(color: color)
-        }
-    }
+    }()
     
     // Need a way to compare and prevent duplicate updates to color state
     // For some reason mutations call `didSet` or `onChange` multiple times
