@@ -70,8 +70,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun upsert (red: Int, green: Int, blue: Int) {
         this.isLocalChange = true
-        this.mDefaultColor = Color.rgb(red / 255, green / 255, blue / 255)
-        this.isOff = false
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            this.mDefaultColor = Color.rgb(red, green, blue)
+        }
+        toggleLight(false)
         ditto.store["lights"].upsert(
             mapOf(
                 "_id" to 5,
@@ -128,13 +130,13 @@ class MainActivity : AppCompatActivity() {
         liveQuery = collection.findByID(5).observe { colorDoc, _ ->
             colorDoc?.let {
                 if (!this.isLocalChange) {
-                    val red = colorDoc["red"].floatValue
-                    val green = colorDoc["green"].floatValue
-                    val blue = colorDoc["blue"].floatValue
+                    val red = colorDoc["red"].intValue
+                    val green = colorDoc["green"].intValue
+                    val blue = colorDoc["blue"].intValue
                     val isOff = colorDoc["isOff"].booleanValue
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        this.mDefaultColor = Color.rgb(red / 255, green / 255, blue / 255)
+                        this.mDefaultColor = Color.rgb(red, green, blue)
                     }
                     toggleLight(isOff)
                 } else {
