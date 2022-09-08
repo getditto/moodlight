@@ -66,7 +66,7 @@ struct ContentView: View {
                     ColorPicker("Pick a color", selection:$color, supportsOpacity: false)
                         .foregroundColor(Color.white)
                         .font(.largeTitle)
-                        .fontWeight(.black)
+//                        .fontWeight(.black)
                         .padding()
                         // FOR SOME REASON didSet IS NOT CALLED BY COLOR PICKER
                         .onChange(of: color) { newColor in
@@ -95,7 +95,7 @@ struct ContentView: View {
             Toggle("Turn Off", isOn: $isOff)
                 .foregroundColor(Color.white)
                 .font(.subheadline)
-                .fontWeight(.bold)
+//                .fontWeight(.bold)
                 .padding()
                 .onReceive(Just(isOff)) { _ in
                     if ContentView.internalIsOff != isOff {
