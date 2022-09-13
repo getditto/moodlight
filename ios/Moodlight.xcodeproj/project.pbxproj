@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0ECAF0E928C93C8900A52C51 /* DittoObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECAF0E828C93C8900A52C51 /* DittoObjC */; };
-		0ECAF0EB28C93C8900A52C51 /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECAF0EA28C93C8900A52C51 /* DittoSwift */; };
+		0E67BAF128D12877007109CA /* DittoObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 0E67BAF028D12877007109CA /* DittoObjC */; };
+		0E67BAF328D12877007109CA /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0E67BAF228D12877007109CA /* DittoSwift */; };
 		0ECAF0EF28CA79A800A52C51 /* CouchbaseLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECAF0EE28CA79A800A52C51 /* CouchbaseLiteSwift */; };
 		0ECAF0F128CA79C600A52C51 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECAF0F028CA79C600A52C51 /* DataManager.swift */; };
-		F96ED8D328906EE000450A78 /* DittoObjC in Frameworks */ = {isa = PBXBuildFile; productRef = F96ED8D228906EE000450A78 /* DittoObjC */; };
-		F96ED8D528906EE000450A78 /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F96ED8D428906EE000450A78 /* DittoSwift */; };
 		F9878C22288DFFF100DC09EB /* MoodlightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C21288DFFF100DC09EB /* MoodlightApp.swift */; };
 		F9878C24288DFFF100DC09EB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C23288DFFF100DC09EB /* ContentView.swift */; };
 		F9878C26288DFFF100DC09EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F9878C25288DFFF100DC09EB /* Assets.xcassets */; };
@@ -60,11 +58,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E67BAF328D12877007109CA /* DittoSwift in Frameworks */,
 				0ECAF0EF28CA79A800A52C51 /* CouchbaseLiteSwift in Frameworks */,
-				F96ED8D328906EE000450A78 /* DittoObjC in Frameworks */,
-				F96ED8D528906EE000450A78 /* DittoSwift in Frameworks */,
-				0ECAF0E928C93C8900A52C51 /* DittoObjC in Frameworks */,
-				0ECAF0EB28C93C8900A52C51 /* DittoSwift in Frameworks */,
+				0E67BAF128D12877007109CA /* DittoObjC in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,11 +165,9 @@
 			);
 			name = Moodlight;
 			packageProductDependencies = (
-				F96ED8D228906EE000450A78 /* DittoObjC */,
-				F96ED8D428906EE000450A78 /* DittoSwift */,
-				0ECAF0E828C93C8900A52C51 /* DittoObjC */,
-				0ECAF0EA28C93C8900A52C51 /* DittoSwift */,
 				0ECAF0EE28CA79A800A52C51 /* CouchbaseLiteSwift */,
+				0E67BAF028D12877007109CA /* DittoObjC */,
+				0E67BAF228D12877007109CA /* DittoSwift */,
 			);
 			productName = DittoMoodlight;
 			productReference = F9878C1E288DFFF100DC09EB /* Moodlight.app */;
@@ -248,9 +242,8 @@
 			);
 			mainGroup = F9878C15288DFFF100DC09EB;
 			packageReferences = (
-				F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
-				0ECAF0E728C93C8800A52C51 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
 				0ECAF0ED28CA79A800A52C51 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */,
+				0E67BAEF28D12877007109CA /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
 			);
 			productRefGroup = F9878C1F288DFFF100DC09EB /* Products */;
 			projectDirPath = "";
@@ -656,12 +649,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		0ECAF0E728C93C8800A52C51 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */ = {
+		0E67BAEF28D12877007109CA /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getditto/DittoSwiftPackage";
 			requirement = {
 				kind = exactVersion;
-				version = 1.1.10;
+				version = 2.0.3;
 			};
 		};
 		0ECAF0ED28CA79A800A52C51 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */ = {
@@ -672,41 +665,23 @@
 				minimumVersion = 3.0.0;
 			};
 		};
-		F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/getditto/DittoSwiftPackage";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		0ECAF0E828C93C8900A52C51 /* DittoObjC */ = {
+		0E67BAF028D12877007109CA /* DittoObjC */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0ECAF0E728C93C8800A52C51 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
+			package = 0E67BAEF28D12877007109CA /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
 			productName = DittoObjC;
 		};
-		0ECAF0EA28C93C8900A52C51 /* DittoSwift */ = {
+		0E67BAF228D12877007109CA /* DittoSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 0ECAF0E728C93C8800A52C51 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
+			package = 0E67BAEF28D12877007109CA /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
 			productName = DittoSwift;
 		};
 		0ECAF0EE28CA79A800A52C51 /* CouchbaseLiteSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 0ECAF0ED28CA79A800A52C51 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */;
 			productName = CouchbaseLiteSwift;
-		};
-		F96ED8D228906EE000450A78 /* DittoObjC */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
-			productName = DittoObjC;
-		};
-		F96ED8D428906EE000450A78 /* DittoSwift */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
-			productName = DittoSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
