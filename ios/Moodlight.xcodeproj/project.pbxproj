@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0ECAF0E928C93C8900A52C51 /* DittoObjC in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECAF0E828C93C8900A52C51 /* DittoObjC */; };
 		0ECAF0EB28C93C8900A52C51 /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECAF0EA28C93C8900A52C51 /* DittoSwift */; };
+		0ECAF0EF28CA79A800A52C51 /* CouchbaseLiteSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 0ECAF0EE28CA79A800A52C51 /* CouchbaseLiteSwift */; };
+		0ECAF0F128CA79C600A52C51 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0ECAF0F028CA79C600A52C51 /* DataManager.swift */; };
 		F96ED8D328906EE000450A78 /* DittoObjC in Frameworks */ = {isa = PBXBuildFile; productRef = F96ED8D228906EE000450A78 /* DittoObjC */; };
 		F96ED8D528906EE000450A78 /* DittoSwift in Frameworks */ = {isa = PBXBuildFile; productRef = F96ED8D428906EE000450A78 /* DittoSwift */; };
 		F9878C22288DFFF100DC09EB /* MoodlightApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = F9878C21288DFFF100DC09EB /* MoodlightApp.swift */; };
@@ -38,6 +40,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0ECAF0F028CA79C600A52C51 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		F9878C1E288DFFF100DC09EB /* Moodlight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moodlight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F9878C21288DFFF100DC09EB /* MoodlightApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodlightApp.swift; sourceTree = "<group>"; };
 		F9878C23288DFFF100DC09EB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -57,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0ECAF0EF28CA79A800A52C51 /* CouchbaseLiteSwift in Frameworks */,
 				F96ED8D328906EE000450A78 /* DittoObjC in Frameworks */,
 				F96ED8D528906EE000450A78 /* DittoSwift in Frameworks */,
 				0ECAF0E928C93C8900A52C51 /* DittoObjC in Frameworks */,
@@ -118,6 +122,7 @@
 				F9878C25288DFFF100DC09EB /* Assets.xcassets */,
 				F9878C27288DFFF100DC09EB /* Moodlight.entitlements */,
 				F9878C28288DFFF100DC09EB /* Preview Content */,
+				0ECAF0F028CA79C600A52C51 /* DataManager.swift */,
 			);
 			path = Moodlight;
 			sourceTree = "<group>";
@@ -168,6 +173,7 @@
 				F96ED8D428906EE000450A78 /* DittoSwift */,
 				0ECAF0E828C93C8900A52C51 /* DittoObjC */,
 				0ECAF0EA28C93C8900A52C51 /* DittoSwift */,
+				0ECAF0EE28CA79A800A52C51 /* CouchbaseLiteSwift */,
 			);
 			productName = DittoMoodlight;
 			productReference = F9878C1E288DFFF100DC09EB /* Moodlight.app */;
@@ -244,6 +250,7 @@
 			packageReferences = (
 				F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
 				0ECAF0E728C93C8800A52C51 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */,
+				0ECAF0ED28CA79A800A52C51 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */,
 			);
 			productRefGroup = F9878C1F288DFFF100DC09EB /* Products */;
 			projectDirPath = "";
@@ -288,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F9878C24288DFFF100DC09EB /* ContentView.swift in Sources */,
+				0ECAF0F128CA79C600A52C51 /* DataManager.swift in Sources */,
 				F9878C22288DFFF100DC09EB /* MoodlightApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -656,6 +664,14 @@
 				version = 1.1.10;
 			};
 		};
+		0ECAF0ED28CA79A800A52C51 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/couchbase/couchbase-lite-swift-ee.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 		F96ED8D128906EE000450A78 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/getditto/DittoSwiftPackage";
@@ -676,6 +692,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 0ECAF0E728C93C8800A52C51 /* XCRemoteSwiftPackageReference "DittoSwiftPackage" */;
 			productName = DittoSwift;
+		};
+		0ECAF0EE28CA79A800A52C51 /* CouchbaseLiteSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 0ECAF0ED28CA79A800A52C51 /* XCRemoteSwiftPackageReference "couchbase-lite-swift-ee" */;
+			productName = CouchbaseLiteSwift;
 		};
 		F96ED8D228906EE000450A78 /* DittoObjC */ = {
 			isa = XCSwiftPackageProductDependency;
