@@ -100,7 +100,7 @@ struct ContentView: View {
         
         static func insertDefaultColor(red: Double, green: Double, blue: Double) {
             ContentView.ViewModel.isLocalChange = true
-            DataManger.shared.sendData(id: "5", red: red, green: green, blue: blue, isOff: false)
+            DataManger.shared.insertDefault(id: "5", red: red, green: green, blue: blue, isOff: false)
         }
         
         static func getPersistedIsOff() -> Bool {

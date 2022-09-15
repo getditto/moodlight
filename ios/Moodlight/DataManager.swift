@@ -185,7 +185,7 @@ class DataManger: NSObject {
     
     override init() {
         Database.log.console.domains = .all
-        database = try! Database(name: "Ditto-CB")
+        database = try! Database(name: "Lights")
         cbListener = MessageEndpointListener(config: MessageEndpointListenerConfiguration(database: database, protocolType: .messageStream))
         do {
             ditto = Ditto()
@@ -279,7 +279,7 @@ class DataManger: NSObject {
         }
     }
     
-    func sendData(id: String, red: Double, green: Double, blue: Double, isOff: Bool) {
+    func insertDefault(id: String, red: Double, green: Double, blue: Double, isOff: Bool) {
         let count = database.count
         print(count)
         let newTask = MutableDocument(id: id)
